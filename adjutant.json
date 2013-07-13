@@ -1,0 +1,12 @@
+{
+  "repositories": [
+    {
+      "name": "test_repo",
+      "cmd_path": "test.sh",
+      "args": []
+    }
+  ],
+  "hook_url": "/",
+  "port": 9171,
+  "kill_timeout": 5000
+}

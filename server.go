@@ -6,6 +6,7 @@ import (
   "github.com/Mischanix/applog"
   "net"
   "net/http"
+  "strings"
 )
 
 var serverListener *net.Listener
@@ -31,7 +32,8 @@ func handler(w http.ResponseWriter, req *http.Request) {
     w.Write([]byte("nok: method not supported"))
     return
   }
-  d := json.NewDecoder(req.Body)
+
+  d := json.NewDecoder(strings.NewReader(req.PostFormValue("payload")))
   var hookData postReceiveData
   err := d.Decode(&hookData)
   if err != nil {
